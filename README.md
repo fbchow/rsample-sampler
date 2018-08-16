@@ -1,7 +1,13 @@
 # rsample-sampler  
 
+## Content  
+Slides here:  
 
-These are notes from the R-Ladies meetup!  
+
+Code here:  
+
+
+
 
 ## Set-up   
 
@@ -12,4 +18,7 @@ Please install these items beforehand. If you have any issues, feel free to emai
 ```R
 install.packages("tidyverse")
 install.packages("tidymodels")
+
+library(tidyverse)
+library(rsample)
 ```
