@@ -2,11 +2,7 @@
 
 ## Content  
 Slides here:  
-
-
-Code here:  
-
-
+https://speakerdeck.com/statsfan/rsample-sampler
 
 
 ## Set-up   
