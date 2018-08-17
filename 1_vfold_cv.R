@@ -1,7 +1,14 @@
+# Load packages
 library(tidyverse)
 library(tidymodels)
 
 
+# Initial Split Example ---------------------------------------------------
+
+# Create a toy data set for fits and tribbles
+  # A tribble is a row-wise tibble.  
+  # A tibble is an updated version of the dataframe. 
+  # What's your favorite number? Add yourself to the list.
 names_df <- tribble(
   ~name, ~fav_num,
   "Dana", 4,
@@ -16,21 +23,30 @@ names_df <- tribble(
   "Emily", 6
 )
 
+# Explore our data  
 boxplot(names_df$fav_num)
 View(names_df)
 nrow(names_df)
 str(names_df)
 summary(names_df)
 
-
+# Randomly split our data set into two parts: train & test
 first_split <- initial_split(names_df)
-train_names <- analysis(first_split)
-test_names <- assessment(first_split)
+first_split
+# <8/2/10>
+# <training: 8 people, test: 2 people, originally: 10 people>  
+
+train_names <- training(first_split)
+train_names
+
+
+test_names <- testing(first_split)
+test_names
 
 
 
-my_folds <- vfold_cv(train_names, v=3)
-my_folds
+# my_folds <- vfold_cv(train_names, v=3)
+# my_folds
 
 # The `split` objects contain the information about the sample sizes
 my_folds$splits[[1]]
@@ -56,19 +72,41 @@ assessment(my_folds$splits[[2]])
 
 
 # Attrition Example -------------------------------------------------------
+
+# Load & explore data  
 data("attrition")
+# ?attrition          # Learn what the data set is about. 
 colnames(attrition)
 head(attrition)
 
+# We randomly split our data into train & test sets. 
+  # If you want your data split the same way as your neighbor, set the seed to 
+  # the same number. The seed can be any number. It can be your favorite number  
+  # or your neighbor's favorite number!  
 set.seed(888)
 attrition_split <- initial_split(attrition)
 attrition_split
 
 attrition_train <- training(attrition_split)
-attrit_test <- testing(attrition_split) 
+attrition_test <- testing(attrition_split) 
+
+nrow(attrition_train)
+nrow(attrition_test)
+
+
+my_folds <- vfold_cv(attrition_train, v=10)
+my_folds[1]
+
+
+
+
+
 
 attr_folds <- vfold_cv(attrition_train, v = 10) 
-attr_folds
+first_fold <- attr_folds[[1]]
+first_fold
+
+analysis(first_fold)
 
 
 
@@ -102,6 +140,9 @@ ggplot(attrition, aes(x = Gender, y = MonthlyIncome)) +
   scale_y_log10()
 
 
+
+
+
 median_diff <- function(splits) {
   x <- analysis(splits)
   median(x$MonthlyIncome[x$Gender == "Female"]) - 
@@ -111,6 +152,7 @@ median_diff <- function(splits) {
 
 set.seed(808)
 bt_resamples <- bootstraps(attrition, times = 500)
+
 
 bt_resamples$wage_diff <- map_dbl(bt_resamples$splits, median_diff)
 

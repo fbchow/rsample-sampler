@@ -1,11 +1,10 @@
 # rsample-sampler  
 
 ## Content  
-Slides here:  
+Slides [here](https:www.slidedeck.com/    )
 
 
-Code here:  
-
+Code in this repository.  
 
 
 
