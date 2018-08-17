@@ -1,16 +1,13 @@
 # rsample-sampler  
 
 ## Content  
-<<<<<<< HEAD
-Slides [here](https:www.slidedeck.com/    )
 
 
 Code in this repository.  
 
-=======
 Slides here:  
 https://speakerdeck.com/statsfan/rsample-sampler
->>>>>>> 572392d49dd79f5797708c20ff13c7b969dd280b
+
 
 
 ## Set-up   
