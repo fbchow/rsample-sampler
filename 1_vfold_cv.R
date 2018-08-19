@@ -44,9 +44,35 @@ test_names <- testing(first_split)
 test_names
 
 
+# Attrition Example -------------------------------------------------------
 
-# my_folds <- vfold_cv(train_names, v=3)
-# my_folds
+# Load & explore data  
+data("attrition")
+# ?attrition          # Learn what the data set is about. 
+colnames(attrition)
+head(attrition)
+
+# We randomly split our data into train & test sets. 
+  # If you want your data split the same way as your neighbor, set the seed to 
+  # the same number. The seed can be any number. It can be your favorite number  
+  # or your neighbor's favorite number!  
+set.seed(888)
+attrition_split <- initial_split(attrition)
+attrition_split
+
+attrition_train <- training(attrition_split)
+attrition_test <- testing(attrition_split) 
+
+nrow(attrition_train)
+nrow(attrition_test)
+
+
+
+
+# V-Fold CV -----------------------------------------------------------------
+
+my_folds <- vfold_cv(train_names, v=3)
+my_folds
 
 # The `split` objects contain the information about the sample sizes
 my_folds$splits[[1]]
@@ -71,35 +97,19 @@ assessment(my_folds$splits[[2]])
 
 
 
-# Attrition Example -------------------------------------------------------
-
-# Load & explore data  
-data("attrition")
-# ?attrition          # Learn what the data set is about. 
-colnames(attrition)
-head(attrition)
-
-# We randomly split our data into train & test sets. 
-  # If you want your data split the same way as your neighbor, set the seed to 
-  # the same number. The seed can be any number. It can be your favorite number  
-  # or your neighbor's favorite number!  
-set.seed(888)
-attrition_split <- initial_split(attrition)
-attrition_split
-
-attrition_train <- training(attrition_split)
-attrition_test <- testing(attrition_split) 
-
-nrow(attrition_train)
-nrow(attrition_test)
 
 
+
+
+
+
+
+
+
+
+# Attrition V-Fold CV ------------------------------------------------------------
 my_folds <- vfold_cv(attrition_train, v=10)
 my_folds[1]
-
-
-
-
 
 
 attr_folds <- vfold_cv(attrition_train, v = 10) 
@@ -130,6 +140,12 @@ analysis(attr_folds$splits[[2]])
 
 assessment(attr_folds$splits[[2]]) %>% dim()
 assessment(attr_folds$splits[[2]])
+
+
+
+
+
+
 
 
 

@@ -5,15 +5,15 @@
 
 Code in this repository.  
 
-Slides here:  
-https://speakerdeck.com/statsfan/rsample-sampler
+Slides [here](https://speakerdeck.com/statsfan/rsample-sampler)
 
 
 
 ## Set-up   
 
-Please install these items beforehand. If you have any issues, feel free to email me at fchow[at]ucdavis[period]edu.  
-[R]	(https://cran.rstudio.com)
+Please install these items beforehand.  
+If you have any issues, feel free to reach out to me.   
+[R](https://cran.rstudio.com)  
 [RStudio](https://www.rstudio.com/products/rstudio/download/)	
 
 ```R
