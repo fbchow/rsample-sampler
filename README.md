@@ -5,7 +5,7 @@
 
 Code in this repository.  
 
-Slides [here](https://speakerdeck.com/statsfan/rsample-sampler)
+Slides [here](https://speakerdeck.com/statsfan/rample-sampler)
 
 
 
