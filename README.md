@@ -1,11 +1,13 @@
 # rsample-sampler  
+Talk from [R-Ladies SF](https://www.meetup.com/rladies-san-francisco/events/253354301/) on 2018-08-15.  
+
 
 ## Content  
 
 
 Code in this repository.  
 
-Slides [here](https://speakerdeck.com/statsfan/rample-sampler)
+Slides [here](https://speakerdeck.com/statsfan/rsample-sampler)
 
 
 
